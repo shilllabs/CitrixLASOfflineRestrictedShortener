@@ -1,0 +1,405 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:c1a2b3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-04-18T00:00:00Z",
+    "tools": [
+      {
+        "vendor": "Anthropic",
+        "name": "Claude Code",
+        "version": "2026"
+      }
+    ],
+    "authors": [
+      {
+        "name": "Shane Smith",
+        "email": null
+      }
+    ],
+    "component": {
+      "type": "application",
+      "name": "CitrixLASOfflineRestrictedShortener",
+      "version": "2.5.0",
+      "description": "Offline tool for encoding Citrix LAS licensing data (LSID + RSA public key) into human-typeable chunked keys using Crockford Base32 encoding. Designed for air-gapped environments where file transfer is not possible.",
+      "authors": [
+        {
+          "name": "Shane Smith"
+        }
+      ],
+      "supplier": {
+        "name": "Citrix — North America Government Technical Strategy"
+      },
+      "licenses": [
+        {
+          "license": {
+            "name": "Citrix Sample Code License",
+            "text": {
+              "content": "This software / sample code is provided to you AS IS with no representations, warranties or conditions of any kind. You may use, modify and distribute it at your own risk. CITRIX DISCLAIMS ALL WARRANTIES WHATSOEVER, EXPRESS, IMPLIED, WRITTEN, ORAL OR STATUTORY, INCLUDING WITHOUT LIMITATION WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE AND NONINFRINGEMENT."
+            }
+          }
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "type": "framework",
+      "name": "Python",
+      "version": "3.13.13",
+      "description": "Python programming language runtime. All application modules are from the Python standard library — no third-party packages are used at runtime.",
+      "purl": "pkg:generic/python@3.13.13",
+      "scope": "required"
+    },
+    {
+      "type": "library",
+      "name": "base64",
+      "version": "3.13.13",
+      "description": "Base64, Base32, Base85 encoding/decoding. Used to decode PEM key body and encode final output. Part of the Python standard library.",
+      "purl": "pkg:pypi/base64@stdlib",
+      "scope": "required",
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "json",
+      "version": "3.13.13",
+      "description": "JSON encoder and decoder. Used to parse input files and extract LSID and pubkey fields. Part of the Python standard library.",
+      "purl": "pkg:pypi/json@stdlib",
+      "scope": "required",
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "struct",
+      "version": "3.13.13",
+      "description": "Pack and unpack binary data with fixed layouts. Used to encode byte lengths as fixed-size binary headers. Part of the Python standard library.",
+      "purl": "pkg:pypi/struct@stdlib",
+      "scope": "required",
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "os",
+      "version": "3.13.13",
+      "description": "Operating system interface. Used for file path operations, file size checks, and permission management. Part of the Python standard library.",
+      "purl": "pkg:pypi/os@stdlib",
+      "scope": "required",
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "sys",
+      "version": "3.13.13",
+      "description": "System-specific parameters and functions. Used for command-line argument handling and exit codes. Part of the Python standard library.",
+      "purl": "pkg:pypi/sys@stdlib",
+      "scope": "required",
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "zipfile",
+      "version": "3.13.13",
+      "description": "Read and write ZIP archive files. Used to open .zip archives and read JSON files inside them without extracting to disk. Part of the Python standard library.",
+      "purl": "pkg:pypi/zipfile@stdlib",
+      "scope": "required",
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "datetime",
+      "version": "3.13.13",
+      "description": "Date and time handling. Used to generate timestamps for output filenames and log entries. Part of the Python standard library.",
+      "purl": "pkg:pypi/datetime@stdlib",
+      "scope": "required",
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "logging",
+      "version": "3.13.13",
+      "description": "Logging framework. Used to record activities to both a log file and the GUI log viewer. Part of the Python standard library.",
+      "purl": "pkg:pypi/logging@stdlib",
+      "scope": "required",
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tkinter",
+      "version": "3.13.13",
+      "description": "Standard GUI toolkit for Python. Used to build the graphical interface with tabbed layout, file dialogs, and text areas. Part of the Python standard library.",
+      "purl": "pkg:pypi/tkinter@stdlib",
+      "scope": "required",
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "shutil",
+      "version": "3.13.13",
+      "description": "High-level file operations. Used to copy export files from the Citrix cache directory. Part of the Python standard library.",
+      "purl": "pkg:pypi/shutil@stdlib",
+      "scope": "required",
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "subprocess",
+      "version": "3.13.13",
+      "description": "Subprocess management. Used to execute the Citrix ctxLasOfflineActivationTool.exe for export generation. Part of the Python standard library.",
+      "purl": "pkg:pypi/subprocess@stdlib",
+      "scope": "required",
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "stat",
+      "version": "3.13.13",
+      "description": "File permission constants. Used to set restrictive file permissions on output files. Part of the Python standard library.",
+      "purl": "pkg:pypi/stat@stdlib",
+      "scope": "required",
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "PyInstaller",
+      "version": "6.19.0",
+      "description": "Bundles Python application and interpreter into a standalone Windows executable. Used only at build time — not included in the runtime application.",
+      "purl": "pkg:pypi/pyinstaller@6.19.0",
+      "scope": "excluded",
+      "properties": [
+        {
+          "name": "source",
+          "value": "pypi"
+        },
+        {
+          "name": "usage",
+          "value": "build-time-only"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "altgraph",
+      "version": "0.17.5",
+      "description": "Graph data structure library. PyInstaller build-time dependency.",
+      "purl": "pkg:pypi/altgraph@0.17.5",
+      "scope": "excluded",
+      "properties": [
+        {
+          "name": "source",
+          "value": "pypi"
+        },
+        {
+          "name": "usage",
+          "value": "build-time-only"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "packaging",
+      "version": "26.1",
+      "description": "Version parsing and specifiers. PyInstaller build-time dependency.",
+      "purl": "pkg:pypi/packaging@26.1",
+      "scope": "excluded",
+      "properties": [
+        {
+          "name": "source",
+          "value": "pypi"
+        },
+        {
+          "name": "usage",
+          "value": "build-time-only"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "pefile",
+      "version": "2024.8.26",
+      "description": "Windows PE file parser. PyInstaller build-time dependency.",
+      "purl": "pkg:pypi/pefile@2024.8.26",
+      "scope": "excluded",
+      "properties": [
+        {
+          "name": "source",
+          "value": "pypi"
+        },
+        {
+          "name": "usage",
+          "value": "build-time-only"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "pyinstaller-hooks-contrib",
+      "version": "2026.4",
+      "description": "Community-maintained hooks for PyInstaller. Build-time dependency.",
+      "purl": "pkg:pypi/pyinstaller-hooks-contrib@2026.4",
+      "scope": "excluded",
+      "properties": [
+        {
+          "name": "source",
+          "value": "pypi"
+        },
+        {
+          "name": "usage",
+          "value": "build-time-only"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "pywin32-ctypes",
+      "version": "0.2.3",
+      "description": "Windows API bindings via ctypes. PyInstaller build-time dependency.",
+      "purl": "pkg:pypi/pywin32-ctypes@0.2.3",
+      "scope": "excluded",
+      "properties": [
+        {
+          "name": "source",
+          "value": "pypi"
+        },
+        {
+          "name": "usage",
+          "value": "build-time-only"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "setuptools",
+      "version": "82.0.1",
+      "description": "Python package management. PyInstaller build-time dependency.",
+      "purl": "pkg:pypi/setuptools@82.0.1",
+      "scope": "excluded",
+      "properties": [
+        {
+          "name": "source",
+          "value": "pypi"
+        },
+        {
+          "name": "usage",
+          "value": "build-time-only"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "ctxLasOfflineActivationTool",
+      "version": "unknown",
+      "description": "Citrix LAS Offline Activation Tool. External executable invoked via subprocess to generate the darksiteRequest.zip export file. Not bundled — must be installed separately as part of the Citrix Licensing Server.",
+      "scope": "optional",
+      "properties": [
+        {
+          "name": "source",
+          "value": "citrix-licensing-server"
+        },
+        {
+          "name": "usage",
+          "value": "external-tool-invocation"
+        },
+        {
+          "name": "path",
+          "value": "C:\\Program Files (x86)\\Citrix\\Licensing\\ls\\ctxLasOfflineActivationTool.exe"
+        }
+      ]
+    }
+  ],
+  "compositions": [
+    {
+      "aggregate": "complete",
+      "assemblies": [
+        "pkg:generic/python@3.13.13"
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "name": "build-platform",
+      "value": "Windows 11 Enterprise 10.0.26200"
+    },
+    {
+      "name": "python-version",
+      "value": "3.13.13"
+    },
+    {
+      "name": "third-party-runtime-dependencies",
+      "value": "0"
+    },
+    {
+      "name": "network-access",
+      "value": "none"
+    },
+    {
+      "name": "security-audit-date",
+      "value": "2026-04-17"
+    },
+    {
+      "name": "ai-assisted-development",
+      "value": "Claude Code (Anthropic) was used as a development tool to assist with code generation, security review, and documentation. All code was reviewed and approved by the author."
+    }
+  ]
+}
