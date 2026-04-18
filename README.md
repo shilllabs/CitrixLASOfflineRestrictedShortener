@@ -1,4 +1,4 @@
-Citrix LAS Offline Restricted Shortener v2.1.0
+Citrix LAS Offline Restricted Shortener v2.6.0
 
 
 PURPOSE
@@ -15,6 +15,7 @@ to avoid characters that look alike (no O/0 confusion, no I/1/L mix-ups).
 It also includes a checksum so typos are caught before decoding.
 
 
+
 HOW IT WORKS
 
 The tool strips known structural overhead from the data (ASN.1 headers,
@@ -26,22 +27,49 @@ The decoder reverses every step exactly, rebuilding the full original
 data string from the typed key.
 
 
+
+EXPORT LOCATION
+
+  The Citrix LAS Offline Activation Tool generates the export file
+  (darksiteRequest.zip) to the following location:
+
+    C:\Program Files (x86)\Citrix\Licensing\LS\resource\cache
+
+  This is where the tool writes the darksiteRequest.zip file when
+  Option A ("Generate Export & Encode") is used. You can also
+  navigate to this folder manually to find the file for Option B.
+
+
+
 STEP-BY-STEP INSTRUCTIONS
 
   Encoding (on the machine where the data file lives):
 
+    Option A — Generate and encode in one step:
     1. Click the "Encode" tab above.
-    2. Click "Browse" and select your input file:
+    2. Click "Generate Export & Encode". This runs the Citrix LAS
+       Offline Activation Tool to create the darksiteRequest.zip
+       file at the export location shown above, then immediately
+       encodes it.
+    3. The encoded key will appear on screen.
+    4. A timestamped copy of the export file, along with key.txt
+       and data.txt, are saved to your Desktop.
+
+    Option B — Encode an existing file:
+    1. Click the "Encode" tab above.
+    2. Click "Browse" and select your input file. You can navigate
+       to the export location above, or select any of these:
        - A .zip archive containing a JSON request file
        - A .json request file directly
        - A .txt file containing the "data":{...} segment
     3. Click the "Encode" button.
     4. The encoded key will appear on screen, formatted as numbered
        lines of chunked characters (e.g., 01: ABCDE-FGHJK-...).
-    5. Two files are saved automatically to the same folder as your
-       input file:
-       - key.txt  — the encoded key (for reference)
-       - data.txt — the extracted data segment (for reference)
+    5. Timestamped output files are saved automatically to the same
+       folder as your input file:
+       - key_YYYYMMDD_HHMMSS.txt  — the encoded key
+       - data_YYYYMMDD_HHMMSS.txt — the extracted data segment
+
     6. Communicate the key to the person at the other machine.
        You can read it aloud, send it over chat, or write it down.
        The key is designed to be easy to read and type.
@@ -64,6 +92,7 @@ STEP-BY-STEP INSTRUCTIONS
   I instead of 1) are handled automatically.
 
 
+
 KEY DETAILS
 
   - Encoded keys are approximately 467-473 characters, formatted
@@ -83,14 +112,14 @@ COMMAND LINE (CLI) MODE
   and pass arguments directly:
 
   Encode:
-    CitrixLASOfflineRestrictedShortener_v2.1.0.exe encode -f request.zip
-    CitrixLASOfflineRestrictedShortener_v2.1.0.exe encode -f data.json
-    CitrixLASOfflineRestrictedShortener_v2.1.0.exe encode -f data.txt
-    CitrixLASOfflineRestrictedShortener_v2.1.0.exe encode
+    CitrixLASOfflineRestrictedShortener_v2.6.0.exe encode -f request.zip
+    CitrixLASOfflineRestrictedShortener_v2.6.0.exe encode -f data.json
+    CitrixLASOfflineRestrictedShortener_v2.6.0.exe encode -f data.txt
+    CitrixLASOfflineRestrictedShortener_v2.6.0.exe encode
 
   Decode:
-    CitrixLASOfflineRestrictedShortener_v2.1.0.exe decode -f key.txt
-    CitrixLASOfflineRestrictedShortener_v2.1.0.exe decode "01: XXXXX-..."
+    CitrixLASOfflineRestrictedShortener_v2.6.0.exe decode -f key.txt
+    CitrixLASOfflineRestrictedShortener_v2.6.0.exe decode "01: XXXXX-..."
 
   When run with no arguments, the GUI opens (this window).
   When run with arguments, it operates in CLI mode with output
