@@ -1,3 +1,5 @@
+[Home](#) | [Examples](./EXAMPLES.md) | [SECURITY](./SECURITY.md)
+
 # Citrix LAS Offline Restricted Shortener
 
 **Version:** 3.0.0  
