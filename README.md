@@ -1,8 +1,6 @@
-[Home](#) | [Examples](./EXAMPLES.md) | [SECURITY](./SECURITY.md)
-
 # Citrix LAS Offline Restricted Shortener
 
-**Version:** 3.0.0  
+**Version:** 3.1.0  
 **Author:** Shane Smith  
 **Credits:** Robert Jaudon
 
@@ -54,7 +52,7 @@ Import the activation response to complete licensing.
 No installation required. The tool is a single standalone Windows executable:
 
 ```
-CitrixLASOfflineRestrictedShortener_v3.0.0.exe
+CitrixLASOfflineRestrictedShortener_v3.1.0.exe
 ```
 
 Requirements:
@@ -72,9 +70,9 @@ Double-click the executable. A license agreement dialog appears first — click 
 ### CLI Mode
 
 ```cmd
-CitrixLASOfflineRestrictedShortener_v3.0.0.exe --acceptEULA encode -f darksiteRequest.zip
-CitrixLASOfflineRestrictedShortener_v3.0.0.exe --acceptEULA decode -f key.txt
-CitrixLASOfflineRestrictedShortener_v3.0.0.exe --acceptEULA generate
+CitrixLASOfflineRestrictedShortener_v3.1.0.exe --acceptEULA encode -f darksiteRequest.zip
+CitrixLASOfflineRestrictedShortener_v3.1.0.exe --acceptEULA decode -f key.txt
+CitrixLASOfflineRestrictedShortener_v3.1.0.exe --acceptEULA generate
 ```
 
 The `--acceptEULA` switch is required for CLI mode.
@@ -148,7 +146,7 @@ pip install pyinstaller
 python -m PyInstaller --clean build.spec
 ```
 
-The executable is produced at `dist/CitrixLASOfflineRestrictedShortener_v3.0.0.exe`.
+The executable is produced at `dist/CitrixLASOfflineRestrictedShortener_v3.1.0.exe`.
 
 ## Legal Disclaimer
 
