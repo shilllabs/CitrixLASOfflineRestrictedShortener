@@ -2,9 +2,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:c1a2b3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
-  "version": 2,
+  "version": 4,
   "metadata": {
-    "timestamp": "2026-04-20T00:00:00Z",
+    "timestamp": "2026-06-23T00:00:00Z",
     "tools": [
       {
         "vendor": "Anthropic",
@@ -20,7 +20,7 @@
     "component": {
       "type": "application",
       "name": "CitrixLASOfflineRestrictedShortener",
-      "version": "3.0.0",
+      "version": "3.2.0",
       "description": "Offline tool for encoding Citrix LAS licensing data (LSID + RSA public key) into human-typeable chunked keys using Crockford Base32 encoding. Includes a 3-step workflow: encode on the License Server, decode on a machine with portal access, and import the activation response. Designed for air-gapped environments where file transfer is not possible.",
       "authors": [
         {
@@ -58,7 +58,12 @@
       "description": "Base64, Base32, Base85 encoding/decoding. Used to decode PEM key body and encode final output.",
       "purl": "pkg:pypi/base64@stdlib",
       "scope": "required",
-      "properties": [{ "name": "source", "value": "python-stdlib" }]
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
     },
     {
       "type": "library",
@@ -67,7 +72,12 @@
       "description": "Secure hash functions. Used to compute SHA-256 verification hashes for data integrity confirmation between encode and decode sides.",
       "purl": "pkg:pypi/hashlib@stdlib",
       "scope": "required",
-      "properties": [{ "name": "source", "value": "python-stdlib" }]
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
     },
     {
       "type": "library",
@@ -76,7 +86,12 @@
       "description": "JSON encoder and decoder. Used to parse input files and extract LSID and pubkey fields.",
       "purl": "pkg:pypi/json@stdlib",
       "scope": "required",
-      "properties": [{ "name": "source", "value": "python-stdlib" }]
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
     },
     {
       "type": "library",
@@ -85,7 +100,12 @@
       "description": "Pack and unpack binary data with fixed layouts. Used to encode byte lengths as fixed-size binary headers.",
       "purl": "pkg:pypi/struct@stdlib",
       "scope": "required",
-      "properties": [{ "name": "source", "value": "python-stdlib" }]
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
     },
     {
       "type": "library",
@@ -94,7 +114,12 @@
       "description": "Operating system interface. Used for file path operations, file size checks, permission management, and path normalization.",
       "purl": "pkg:pypi/os@stdlib",
       "scope": "required",
-      "properties": [{ "name": "source", "value": "python-stdlib" }]
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
     },
     {
       "type": "library",
@@ -103,7 +128,12 @@
       "description": "System-specific parameters and functions. Used for command-line argument handling, EULA switch detection, and exit codes.",
       "purl": "pkg:pypi/sys@stdlib",
       "scope": "required",
-      "properties": [{ "name": "source", "value": "python-stdlib" }]
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
     },
     {
       "type": "library",
@@ -112,7 +142,12 @@
       "description": "Read and write ZIP archive files. Used to open .zip archives and read JSON files inside them without extracting to disk. Includes zip bomb size checking.",
       "purl": "pkg:pypi/zipfile@stdlib",
       "scope": "required",
-      "properties": [{ "name": "source", "value": "python-stdlib" }]
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
     },
     {
       "type": "library",
@@ -121,7 +156,12 @@
       "description": "Date and time handling. Used to generate timestamps for output filenames, log entries, and export file preservation.",
       "purl": "pkg:pypi/datetime@stdlib",
       "scope": "required",
-      "properties": [{ "name": "source", "value": "python-stdlib" }]
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
     },
     {
       "type": "library",
@@ -130,7 +170,12 @@
       "description": "Logging framework. Used to record activities to both a log file and the GUI log viewer tab.",
       "purl": "pkg:pypi/logging@stdlib",
       "scope": "required",
-      "properties": [{ "name": "source", "value": "python-stdlib" }]
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
     },
     {
       "type": "library",
@@ -139,7 +184,12 @@
       "description": "Standard GUI toolkit for Python. Used to build the graphical interface with 7 tabs including EULA acceptance dialog, encode, decode, activation import, log viewer, release notes, and about.",
       "purl": "pkg:pypi/tkinter@stdlib",
       "scope": "required",
-      "properties": [{ "name": "source", "value": "python-stdlib" }]
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
     },
     {
       "type": "library",
@@ -148,7 +198,12 @@
       "description": "High-level file operations. Used to copy export files from the Citrix cache directory to the user's Desktop.",
       "purl": "pkg:pypi/shutil@stdlib",
       "scope": "required",
-      "properties": [{ "name": "source", "value": "python-stdlib" }]
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
     },
     {
       "type": "library",
@@ -157,7 +212,12 @@
       "description": "Subprocess management. Used to execute the Citrix ctxLasOfflineActivationTool.exe for export generation and activation import. Uses list-form execution (no shell) with timeouts.",
       "purl": "pkg:pypi/subprocess@stdlib",
       "scope": "required",
-      "properties": [{ "name": "source", "value": "python-stdlib" }]
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
     },
     {
       "type": "library",
@@ -166,7 +226,12 @@
       "description": "File permission constants. Used to set restrictive file permissions (owner-only) on output files.",
       "purl": "pkg:pypi/stat@stdlib",
       "scope": "required",
-      "properties": [{ "name": "source", "value": "python-stdlib" }]
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
     },
     {
       "type": "application",
@@ -176,8 +241,14 @@
       "purl": "pkg:pypi/pyinstaller@6.19.0",
       "scope": "excluded",
       "properties": [
-        { "name": "source", "value": "pypi" },
-        { "name": "usage", "value": "build-time-only" }
+        {
+          "name": "source",
+          "value": "pypi"
+        },
+        {
+          "name": "usage",
+          "value": "build-time-only"
+        }
       ]
     },
     {
@@ -188,8 +259,14 @@
       "purl": "pkg:pypi/altgraph@0.17.5",
       "scope": "excluded",
       "properties": [
-        { "name": "source", "value": "pypi" },
-        { "name": "usage", "value": "build-time-only" }
+        {
+          "name": "source",
+          "value": "pypi"
+        },
+        {
+          "name": "usage",
+          "value": "build-time-only"
+        }
       ]
     },
     {
@@ -200,8 +277,14 @@
       "purl": "pkg:pypi/packaging@26.1",
       "scope": "excluded",
       "properties": [
-        { "name": "source", "value": "pypi" },
-        { "name": "usage", "value": "build-time-only" }
+        {
+          "name": "source",
+          "value": "pypi"
+        },
+        {
+          "name": "usage",
+          "value": "build-time-only"
+        }
       ]
     },
     {
@@ -212,8 +295,14 @@
       "purl": "pkg:pypi/pefile@2024.8.26",
       "scope": "excluded",
       "properties": [
-        { "name": "source", "value": "pypi" },
-        { "name": "usage", "value": "build-time-only" }
+        {
+          "name": "source",
+          "value": "pypi"
+        },
+        {
+          "name": "usage",
+          "value": "build-time-only"
+        }
       ]
     },
     {
@@ -224,8 +313,14 @@
       "purl": "pkg:pypi/pyinstaller-hooks-contrib@2026.4",
       "scope": "excluded",
       "properties": [
-        { "name": "source", "value": "pypi" },
-        { "name": "usage", "value": "build-time-only" }
+        {
+          "name": "source",
+          "value": "pypi"
+        },
+        {
+          "name": "usage",
+          "value": "build-time-only"
+        }
       ]
     },
     {
@@ -236,8 +331,14 @@
       "purl": "pkg:pypi/pywin32-ctypes@0.2.3",
       "scope": "excluded",
       "properties": [
-        { "name": "source", "value": "pypi" },
-        { "name": "usage", "value": "build-time-only" }
+        {
+          "name": "source",
+          "value": "pypi"
+        },
+        {
+          "name": "usage",
+          "value": "build-time-only"
+        }
       ]
     },
     {
@@ -248,8 +349,14 @@
       "purl": "pkg:pypi/setuptools@82.0.1",
       "scope": "excluded",
       "properties": [
-        { "name": "source", "value": "pypi" },
-        { "name": "usage", "value": "build-time-only" }
+        {
+          "name": "source",
+          "value": "pypi"
+        },
+        {
+          "name": "usage",
+          "value": "build-time-only"
+        }
       ]
     },
     {
@@ -259,11 +366,26 @@
       "description": "Citrix LAS Offline Activation Tool. External executable invoked via subprocess for two operations: (1) generating the darksiteRequest.zip export file, and (2) importing the activation.blob.zip response file. Not bundled — must be installed separately as part of the Citrix Licensing Server.",
       "scope": "optional",
       "properties": [
-        { "name": "source", "value": "citrix-licensing-server" },
-        { "name": "usage", "value": "external-tool-invocation" },
-        { "name": "path", "value": "C:\\Program Files (x86)\\Citrix\\Licensing\\ls\\ctxLasOfflineActivationTool.exe" },
-        { "name": "export-command", "value": "-activation -request -export" },
-        { "name": "import-command", "value": "-activation -response -import <filepath>" }
+        {
+          "name": "source",
+          "value": "citrix-licensing-server"
+        },
+        {
+          "name": "usage",
+          "value": "external-tool-invocation"
+        },
+        {
+          "name": "path",
+          "value": "C:\\Program Files (x86)\\Citrix\\Licensing\\ls\\ctxLasOfflineActivationTool.exe"
+        },
+        {
+          "name": "export-command",
+          "value": "-activation -request -export"
+        },
+        {
+          "name": "import-command",
+          "value": "-activation -response -import <filepath>"
+        }
       ]
     }
   ],

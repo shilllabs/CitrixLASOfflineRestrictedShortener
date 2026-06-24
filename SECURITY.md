@@ -2,9 +2,9 @@
 
 ## Citrix LAS Offline Restricted Shortener
 
-**Version:** 3.0.0
+**Version:** 3.2.0
 **Author:** Shane Smith
-**Date:** 2026-04-20
+**Date:** 2026-06-23
 
 ---
 
@@ -183,6 +183,8 @@ These packages are used only to compile the executable and are **not included in
 | v2.7.0 | 2026-04-20 | Added SHA-256 verification hash for data integrity. |
 | v2.9.1 | 2026-04-20 | Fixed path normalization for Windows native tool compatibility. |
 | v3.0.0 | 2026-04-20 | Added EULA acceptance requirement for GUI and CLI. Rewritten instructions with complete security-aware workflow. |
+| v3.1.0 | 2026-06-07 | UI bug fix (Public Key display). No security-relevant changes. |
+| v3.2.0 | 2026-06-23 | Added Citrix install auto-detection. Reads HKLM Citrix Licensing registry keys (read-only) and scans local drive letters for the install path; no new network or write surface introduced. |
 
 ---
 
