@@ -2,7 +2,7 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
   "serialNumber": "urn:uuid:c1a2b3d4-e5f6-4a7b-8c9d-0e1f2a3b4c5d",
-  "version": 4,
+  "version": 5,
   "metadata": {
     "timestamp": "2026-06-23T00:00:00Z",
     "tools": [
@@ -20,7 +20,7 @@
     "component": {
       "type": "application",
       "name": "CitrixLASOfflineRestrictedShortener",
-      "version": "3.2.0",
+      "version": "3.3.0",
       "description": "Offline tool for encoding Citrix LAS licensing data (LSID + RSA public key) into human-typeable chunked keys using Crockford Base32 encoding. Includes a 3-step workflow: encode on the License Server, decode on a machine with portal access, and import the activation response. Designed for air-gapped environments where file transfer is not possible.",
       "authors": [
         {
@@ -141,6 +141,20 @@
       "version": "3.13.13",
       "description": "Read and write ZIP archive files. Used to open .zip archives and read JSON files inside them without extracting to disk. Includes zip bomb size checking.",
       "purl": "pkg:pypi/zipfile@stdlib",
+      "scope": "required",
+      "properties": [
+        {
+          "name": "source",
+          "value": "python-stdlib"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tarfile",
+      "version": "3.13.13",
+      "description": "Read gzip-compressed tar archives (.tgz/.tar.gz). Used to read the JSON inside a NetScaler Console offline activation request. Includes uncompressed member-size checking (tar-bomb guard).",
+      "purl": "pkg:pypi/tarfile@stdlib",
       "scope": "required",
       "properties": [
         {

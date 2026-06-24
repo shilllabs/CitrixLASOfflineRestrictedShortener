@@ -4,7 +4,21 @@
 
 ---
 
-## v3.2.0 — 2026-06-23 (Current)
+## v3.3.0 — 2026-06-23 (Current)
+
+### NetScaler Console Support
+
+- Added support for NetScaler Console offline activation request files.
+- Step 1, **Option B** (Encode an existing file) now accepts NetScaler `.tgz` / `.tar.gz` archives (e.g. `<guid>_activation_request.tgz`) in addition to Citrix `.zip` files.
+- The tool reads the JSON inside the tarball (`console_offline_activation_request.json`) and extracts the **same** `data.lsid` and `data.pubkey` values it does for the Citrix `darksiteRequest.zip`.
+- Added a new `_read_from_tgz` reader (uses Python's `tarfile`) with the same decompression-bomb size guard as the `.zip` reader.
+- Added a **NetScaler Console Workflow** section to the Instructions tab: NetScaler uses Step 1 Option B and Step 2 (Decode); Step 1 Option A (Generate) and Step 3 (Activate) remain Citrix License Server only — NetScaler imports its response through its own UI.
+- The Option B file browser now distinguishes Citrix (`.zip`) and NetScaler (`.tgz`) request types.
+- Works in both GUI and CLI (`encode -f <file>.tgz`).
+
+---
+
+## v3.2.0 — 2026-06-23
 
 ### Citrix Install Auto-Detection
 

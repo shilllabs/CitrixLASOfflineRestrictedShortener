@@ -1,12 +1,12 @@
 # Citrix LAS Offline Restricted Shortener
 
-**Version:** 3.2.0  
+**Version:** 3.3.0  
 **Author:** Shane Smith  
 **Credits:** Robert Jaudon
 
 ## Overview
 
-This tool facilitates the offline (restricted/air-gapped) activation of Citrix License Server licenses when the server cannot reach the internet. It encodes the licensing request data (LSID + RSA public key) into a short, human-typeable chunked key that can be manually transferred between the isolated License Server and a machine with internet access to the Citrix licensing portal.
+This tool facilitates the offline (restricted/air-gapped) activation of Citrix License Server **and NetScaler Console** licenses when the server cannot reach the internet. It encodes the licensing request data (LSID + RSA public key) into a short, human-typeable chunked key that can be manually transferred between the isolated server and a machine with internet access to the licensing portal. See **NetScaler Console Support** below for the NetScaler-specific workflow.
 
 ## The Problem
 
@@ -47,12 +47,25 @@ Import the activation response to complete licensing.
 2. Run the tool, select the file, click **Import Activation**
 3. The license is now active
 
+## NetScaler Console Support
+
+NetScaler Console produces an offline activation request that carries the **same LSID and public key** as the Citrix License Server, but packaged as a `.tgz` archive (e.g. `<guid>_activation_request.tgz`) instead of a `.zip`.
+
+Because NetScaler generates and imports the request through its own interface, the NetScaler workflow does **not** use Step 1 Option A (Generate) or Step 3 (Activate):
+
+1. In NetScaler Console, download the offline activation request (`.tgz`).
+2. In this tool, go to **Step 1: Encode** and use **Option B** (Encode an existing file). Browse to the `.tgz` file and click **Encode**.
+3. Use **Step 2: Decode** on the internet-connected machine to recover the LSID and public key for the portal (identical to Citrix).
+4. Import the activation response back into NetScaler Console using **NetScaler's own** offline activation import — not Step 3 here.
+
+Supported input formats for Option B: Citrix `.zip`, NetScaler `.tgz` / `.tar.gz`, raw `.json`, or `.txt`.
+
 ## Installation
 
 No installation required. The tool is a single standalone Windows executable:
 
 ```
-CitrixLASOfflineRestrictedShortener_v3.2.0.exe
+CitrixLASOfflineRestrictedShortener_v3.3.0.exe
 ```
 
 Requirements:
@@ -70,9 +83,9 @@ Double-click the executable. A license agreement dialog appears first — click 
 ### CLI Mode
 
 ```cmd
-CitrixLASOfflineRestrictedShortener_v3.2.0.exe --acceptEULA encode -f darksiteRequest.zip
-CitrixLASOfflineRestrictedShortener_v3.2.0.exe --acceptEULA decode -f key.txt
-CitrixLASOfflineRestrictedShortener_v3.2.0.exe --acceptEULA generate
+CitrixLASOfflineRestrictedShortener_v3.3.0.exe --acceptEULA encode -f darksiteRequest.zip
+CitrixLASOfflineRestrictedShortener_v3.3.0.exe --acceptEULA decode -f key.txt
+CitrixLASOfflineRestrictedShortener_v3.3.0.exe --acceptEULA generate
 ```
 
 The `--acceptEULA` switch is required for CLI mode.
@@ -148,7 +161,7 @@ pip install pyinstaller
 python -m PyInstaller --clean build.spec
 ```
 
-The executable is produced at `dist/CitrixLASOfflineRestrictedShortener_v3.2.0.exe`.
+The executable is produced at `dist/CitrixLASOfflineRestrictedShortener_v3.3.0.exe`.
 
 ## Legal Disclaimer
 

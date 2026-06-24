@@ -2,7 +2,7 @@
 
 ## Citrix LAS Offline Restricted Shortener
 
-**Version:** 3.2.0
+**Version:** 3.3.0
 **Author:** Shane Smith
 **Date:** 2026-06-23
 
@@ -58,7 +58,8 @@ This application uses **zero third-party packages**. All modules are from the Py
 | `struct` | Binary data packing/unpacking | None (stdlib) |
 | `os` | File path operations and permission management | None (stdlib) |
 | `sys` | Command-line argument handling | None (stdlib) |
-| `zipfile` | ZIP archive reading | None (stdlib) |
+| `zipfile` | ZIP archive reading (Citrix request) | None (stdlib) |
+| `tarfile` | TGZ/TAR.GZ archive reading (NetScaler request) | None (stdlib) |
 | `datetime` | Timestamp generation for filenames and logs | None (stdlib) |
 | `logging` | Activity logging to file and GUI | None (stdlib) |
 | `tkinter` | Graphical user interface | None (stdlib) |
@@ -100,6 +101,7 @@ These packages are used only to compile the executable and are **not included in
 | Base64 validation | PEM key body validated before decoding; malformed input produces clear error | `pack_data()` in `shorten.py` |
 | JSON file size limit | Files larger than 10 MB rejected before parsing | `_read_from_json()` in `shorten.py` |
 | Zip bomb protection | Decompressed file size checked against 50 MB limit before reading | `_read_from_zip()` in `shorten.py` |
+| Tar bomb protection | Uncompressed member size checked against 50 MB limit before reading | `_read_from_tgz()` in `shorten.py` |
 | Checksum verification | 2-character position-weighted checksum detects typos during decode | `decode()` in `shorten.py` |
 | Verification hash | 8-character SHA-256 hash for end-to-end data integrity confirmation | `compute_verification_hash()` in `shorten.py` |
 | Path normalization | All file paths normalized to OS-native format before use | `os.path.normpath()` in all browse handlers |
@@ -185,6 +187,7 @@ These packages are used only to compile the executable and are **not included in
 | v3.0.0 | 2026-04-20 | Added EULA acceptance requirement for GUI and CLI. Rewritten instructions with complete security-aware workflow. |
 | v3.1.0 | 2026-06-07 | UI bug fix (Public Key display). No security-relevant changes. |
 | v3.2.0 | 2026-06-23 | Added Citrix install auto-detection. Reads HKLM Citrix Licensing registry keys (read-only) and scans local drive letters for the install path; no new network or write surface introduced. |
+| v3.3.0 | 2026-06-23 | Added NetScaler `.tgz` request support. New `_read_from_tgz` reader uses `tarfile` with the same 50 MB decompression-bomb size guard as the zip reader; only reads JSON members, no extraction to disk. |
 
 ---
 
